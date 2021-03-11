@@ -5,6 +5,9 @@ jdk:
 
 sudo: false
 
+script:
+  - mvn test -B
+
 env:
   global:
     - CODECOV_TOKEN="88b8da9f-e19d-4a1a-bfe8-461b689647ff"
