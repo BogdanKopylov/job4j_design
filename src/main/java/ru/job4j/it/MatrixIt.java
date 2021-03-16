@@ -17,11 +17,14 @@ public class MatrixIt implements Iterator<Integer> {
         boolean hasNexxt = false;
         if (column < data[row].length) {
             hasNexxt = true;
-        }
-        for (int i = row + 1; i < data.length; i++) {
-            if (data[i].length > 0) {
-                hasNexxt = true;
-                break;
+        } else {
+            for (int i = row + 1; i < data.length; i++) {
+                if (data[i].length > 0) {
+                    hasNexxt = true;
+                    row = i;
+                    column = 0;
+                    break;
+                }
             }
         }
         return hasNexxt;
@@ -32,16 +35,6 @@ public class MatrixIt implements Iterator<Integer> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        return rec();
-    }
-
-    private Integer rec() {
-        if (column < data[row].length) {
-            return data[row][column++];
-        } else {
-            row++;
-            column = 0;
-        }
-        return rec();
+        return data[row][column++];
     }
 }
