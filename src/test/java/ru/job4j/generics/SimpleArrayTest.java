@@ -18,8 +18,8 @@ public class SimpleArrayTest {
         arr.add(5);
         arr.add(6);
         Integer[] expected = new Integer[]{0, 1, 2, 3, 4, 5, 6};
-        Integer[] actual = new Integer[]{arr.get(0), arr.get(1)
-                , arr.get(2), arr.get(3), arr.get(4), arr.get(5), arr.get(6)};
+        Integer[] actual = new Integer[]{arr.get(0), arr.get(1),
+                arr.get(2), arr.get(3), arr.get(4), arr.get(5), arr.get(6)};
         assertThat(actual, is(expected));
     }
 
@@ -50,8 +50,8 @@ public class SimpleArrayTest {
         arr.set(3, 3);
         arr.set(4, 4);
         Integer[] expected = new Integer[]{0, 1, 2, 3, 4};
-        Integer[] actual = new Integer[]{arr.get(0), arr.get(1)
-                , arr.get(2), arr.get(3), arr.get(4)};
+        Integer[] actual = new Integer[]{arr.get(0), arr.get(1),
+                arr.get(2), arr.get(3), arr.get(4)};
         assertThat(actual, is(expected));
     }
 
@@ -60,8 +60,8 @@ public class SimpleArrayTest {
         SimpleArray<Integer> arr = new SimpleArray<>(new Integer[]{4, 0, 1, 2, 3, 4});
         arr.remove(0);
         Integer[] expected = new Integer[]{0, 1, 2, 3, 4};
-        Integer[] actual = new Integer[]{arr.get(0), arr.get(1)
-                , arr.get(2), arr.get(3), arr.get(4)};
+        Integer[] actual = new Integer[]{arr.get(0), arr.get(1),
+                arr.get(2), arr.get(3), arr.get(4)};
         assertThat(actual, is(expected));
     }
 
@@ -70,8 +70,8 @@ public class SimpleArrayTest {
         SimpleArray<Integer> arr = new SimpleArray<>(new Integer[]{0, 1, 2, 3, 4, 69});
         arr.remove(5);
         Integer[] expected = new Integer[]{0, 1, 2, 3, 4};
-        Integer[] actual = new Integer[]{arr.get(0), arr.get(1)
-                , arr.get(2), arr.get(3), arr.get(4)};
+        Integer[] actual = new Integer[]{arr.get(0), arr.get(1),
+                arr.get(2), arr.get(3), arr.get(4)};
         assertThat(actual, is(expected));
     }
 
@@ -80,8 +80,8 @@ public class SimpleArrayTest {
         SimpleArray<Integer> arr = new SimpleArray<>(new Integer[]{0, 1, 33, 2, 3, 4});
         arr.remove(2);
         Integer[] expected = new Integer[]{0, 1, 2, 3, 4};
-        Integer[] actual = new Integer[]{arr.get(0), arr.get(1)
-                , arr.get(2), arr.get(3), arr.get(4)};
+        Integer[] actual = new Integer[]{arr.get(0), arr.get(1),
+                arr.get(2), arr.get(3), arr.get(4)};
         assertThat(actual, is(expected));
     }
 
@@ -92,8 +92,8 @@ public class SimpleArrayTest {
         arr.remove(6);
         arr.remove(2);
         Integer[] expected = new Integer[]{0, 1, 2, 3, 4};
-        Integer[] actual = new Integer[]{arr.get(0), arr.get(1)
-                , arr.get(2), arr.get(3), arr.get(4)};
+        Integer[] actual = new Integer[]{arr.get(0), arr.get(1),
+                arr.get(2), arr.get(3), arr.get(4)};
         assertThat(actual, is(expected));
     }
 
