@@ -7,35 +7,40 @@ import java.util.Objects;
 
 public class SimpleArray<T> implements Iterable<T> {
     private T[] array;
+    private int count;
 
-    public SimpleArray(T[] array) {
-        this.array = array;
+    public SimpleArray(int capacity) {
+        this.array = (T[]) new Object[capacity];
+        this.count = 0;
     }
 
     public void add(T model) {
-        array = Arrays.copyOf(array, array.length + 1);
-        array[array.length - 1] = model;
+        if (count == array.length) {
+            array = Arrays.copyOf(array, array.length * 2);
+        }
+        array[count++] = model;
     }
     public void set(int index, T model) {
-        Objects.checkIndex(index, array.length);
+        Objects.checkIndex(index, count);
         this.array[index] = model;
 
     }
     public void remove(int index) {
-        Objects.checkIndex(index, array.length);
-        T[] toArray = Arrays.copyOf(array, array.length - 1);
+        Objects.checkIndex(index, count);
         if (index == 0) {
-            System.arraycopy(array, 1, toArray, 0, array.length - 1);
-        } else if (index == array.length - 1) {
-            System.arraycopy(array, 0, toArray, 0, array.length - 1);
+            System.arraycopy(array, 1, array, 0, count - 1);
+            array[count - 1] = null;
+            count--;
+        } else if (index == count - 1) {
+            array[count - 1] = null;
+            count--;
         } else {
-            System.arraycopy(array, 0, toArray, 0, index);
-            System.arraycopy(array, (index + 1), toArray, index, array.length - (index + 1));
+            System.arraycopy(array, (index + 1), array, index, count - 1 - index);
+            count--;
         }
-        this.array = toArray;
     }
     public T get(int index) {
-        Objects.checkIndex(index, array.length);
+        Objects.checkIndex(index, count);
         return this.array[index];
     }
 
@@ -46,7 +51,7 @@ public class SimpleArray<T> implements Iterable<T> {
 
             @Override
             public boolean hasNext() {
-                return point < array.length;
+                return point < count;
             }
 
             @Override
