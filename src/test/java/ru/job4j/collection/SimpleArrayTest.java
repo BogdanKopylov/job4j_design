@@ -61,6 +61,6 @@ public class SimpleArrayTest {
         array.add(0);
         array.add(1);
         array.add(2);
-        assertThat(array.get(2), is (2));
+        assertThat(array.get(2), is(2));
     }
 }
