@@ -14,17 +14,28 @@ public class SimpleArray<T> implements Iterable<T> {
         this.modCount = 0;
     }
 
+    public SimpleArray() {
+        this.container = (T[]) new Object[10];
+        this.size = 0;
+        this.modCount = 0;
+    }
+
     public T get(int index) {
         Objects.checkIndex(index, size);
         return this.container[index];
     }
 
     public void add(T model) {
-        if (size == container.length) {
-            container = Arrays.copyOf(container, container.length * 2);
-        }
-        container[size++] = model;
+        add(model, container, size);
         modCount++;
+    }
+
+    private void add(T model, T[] container, int s) {
+        if (s == container.length) {
+            this.container = Arrays.copyOf(container, container.length * 2);
+        }
+        this.container[s] = model;
+        size++;
     }
 
     @Override
