@@ -16,9 +16,13 @@ public class SimpleArray<T> implements Iterable<T> {
 
     public void add(T model) {
         if (count == array.length) {
-            array = Arrays.copyOf(array, array.length * 2);
+            array = grow();
         }
         array[count++] = model;
+    }
+    
+    private T[] grow() {
+        return Arrays.copyOf(array, array.length * 2);
     }
     public void set(int index, T model) {
         Objects.checkIndex(index, count);
