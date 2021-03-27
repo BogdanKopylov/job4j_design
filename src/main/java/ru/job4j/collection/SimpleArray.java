@@ -38,6 +38,8 @@ public class SimpleArray<T> implements Iterable<T> {
         size++;
     }
 
+
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
